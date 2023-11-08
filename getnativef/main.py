@@ -160,14 +160,18 @@ parser.add_argument(
 )
 
 
-def main():
+def getnative():
     debug("Called via 'getnative'. Assuming integer res and steps = 1")
     _main(False)
 
 
-def fmain():
+def getfnative():
     debug("Called via 'getfnative'. Assuming float res and steps = 0.05")
     _main(True)
+
+
+def main():
+    _main(False)
 
 
 def _main(frac: bool):

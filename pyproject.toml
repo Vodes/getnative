@@ -37,6 +37,6 @@ build-backend = "setuptools.build_meta"
 "Contact" = "https://discord.gg/Kf94Nv6WVN"
 
 [project.scripts]
-getnative = "getnativef.main:main"
-getfnative = "getnativef.main:fmain"
+getnative = "getnativef.main:getnative"
+getfnative = "getnativef.main:getfnative"
 getnativef = "getnativef.main:main"
