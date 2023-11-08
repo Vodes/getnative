@@ -1,0 +1,39 @@
+
+[project]
+name = "getnativef"
+version = "0.0.1"
+description = "getnative rewritten with modern packages and fractional res support"
+authors = [{ name = "Vodes", email = "vodes.imp@gmail.com" }]
+dependencies = [
+    "Vapoursynth>=63",
+    "matplotlib>=2.0.0",
+    "vsscale>=1.0.1",
+    "vskernels>=1.2.0",
+    "vstools>=1.6.2",
+]
+classifiers = [
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+    "Topic :: Multimedia :: Video",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MPL 2.0" }
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Source Code" = "https://github.com/Vodes/getnative"
+"Contact" = "https://discord.gg/Kf94Nv6WVN"
+
+[project.scripts]
+getnative = "getnativef.main:main"
+getfnative = "getnativef.main:fmain"
+getnativef = "getnativef.main:main"
