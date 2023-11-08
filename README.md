@@ -1,5 +1,7 @@
-# Getnative
-Find the native resolution(s) of upscaled material (mostly anime)
+# Getnativef
+Find the native (fractional) resolution(s) of upscaled material (mostly anime)
+
+## The readme is due for an update soonish
 
 # Usage
 Start by executing:
