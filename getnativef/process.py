@@ -63,7 +63,7 @@ def process(
     gc.collect()
 
     best = attempts[errors.index(min(errors))]
-    info(f"Lowest error found at: {best}p")
+    info(f"Lowest error found at a height of {best}")
     return (attempts, errors)
 
 

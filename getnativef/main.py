@@ -3,7 +3,7 @@ from pathlib import Path
 from .process import process, get_plot
 from .utils import to_float
 from .kernels import get_kernel_from_args, common_kernels
-from .log import info, debug, warn
+from .log import info, debug, warn, error
 
 from vskernels import Bicubic, Bilinear, Kernel
 from vstools import vs, core
@@ -189,8 +189,9 @@ def _main(frac: bool):
         args.steps = 0.05 if frac else 1
 
     if not float(args.steps).is_integer() and not args.base_height:
-        warn("You're attempting to check for fractional resolution without passing a base-height!\nAssuming max-height as base-height.")
-        args.base_height = args.max_h
+        warn(
+            "You're attempting to check for fractional resolution without passing a base-height!\nAssuming the next mod2 value of the height being checked."
+        )
 
     if Path(args.input_file).suffix.lower() in {".py", ".pyw", ".vpy"}:
         import runpy
@@ -202,14 +203,14 @@ def _main(frac: bool):
             try:
                 node = node[0]
             except:
-                raise ValueError("Please set a proper output node in the script you want to pass.")
+                raise error("Please set a proper output node in the script you want to pass.")
     else:
         clip = source(args.input_file)
 
     try:
         clip = clip[int(args.frame)]
     except:
-        raise ValueError(f"Could not get frame {args.frame} from indexed file!")
+        raise error(f"Could not get frame {args.frame} from indexed file!")
 
     for kernel in kernels:
         get_plot(process(clip, kernel, args.min_h, args.max_h, args.steps, args.direction, args.base_height, args.base_width), kernel, args)
