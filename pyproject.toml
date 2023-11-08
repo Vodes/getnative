@@ -10,6 +10,9 @@ dependencies = [
     "vsscale>=1.0.1",
     "vskernels>=1.2.0",
     "vstools>=1.6.2",
+    "vssource>=0.1.0",
+    "numpy>=1.24.3",
+    "rich>=13.1.0",
 ]
 classifiers = [
     "Natural Language :: English",
