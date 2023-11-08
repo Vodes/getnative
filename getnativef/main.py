@@ -3,7 +3,7 @@ from pathlib import Path
 from .process import process, get_plot
 from .utils import to_float
 from .kernels import get_kernel_from_args, common_kernels
-from .log import info, debug
+from .log import info, debug, warn
 
 from vskernels import Bicubic, Bilinear, Kernel
 from vstools import vs, core
@@ -189,7 +189,8 @@ def _main(frac: bool):
         args.steps = 0.05 if frac else 1
 
     if not float(args.steps).is_integer() and not args.base_height:
-        print("Warning: You're attempting to check for fractional resolution without passing a base-height!")
+        warn("You're attempting to check for fractional resolution without passing a base-height!\nAssuming max-height as base-height.")
+        args.base_height = args.max_h
 
     if Path(args.input_file).suffix.lower() in {".py", ".pyw", ".vpy"}:
         import runpy
