@@ -201,11 +201,11 @@ def _main(frac: bool):
         import runpy
 
         runpy.run_path(str(Path(args.input_file).resolve()), {}, "__vapoursynth__")
-        node = vs.get_output(0)
+        clip = vs.get_output(0)
 
-        if not isinstance(node, vs.VideoNode):
+        if not isinstance(clip, vs.VideoNode):
             try:
-                node = node[0]
+                clip = clip[0]
             except:
                 raise error("Please set a proper output node in the script you want to pass.")
     else:
